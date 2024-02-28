@@ -1,4 +1,4 @@
-// Completed the problem successfully
+//  Done the problem successfully
 class Node {
 	constructor(data) {
 		this.data = data;
@@ -74,26 +74,25 @@ function print(head) {
 	}
 }
 
-var deleteDuplicates = function (head) {
-	if (!head) return head;
-	let prev = head;
-	let later = prev.next;
-	while (later) {
-		try {
-			while (later.data === prev.data) {
-				prev.next = later.next;
-				later = prev.next;
-			}
-			prev = prev.next;
-			later = prev.next;
-		} catch (err) {
-			console.log(err.stack);
-		}
+var sortList = function (head) {
+	let temp = head;
+	let arr = [];
+	while (temp) {
+		arr.push(temp.data);
+		temp = temp.next;
+	}
+	arr = arr.sort((a, b) => a - b);
+    let count = 0;
+    temp = head;
+	while (temp) {
+		temp.data = arr[count];
+		temp = temp.next;
+		count++;
 	}
 	return head;
 };
 
 let list = new LinkedList();
-list.appendList([1, 1, 2]);
-let LL = deleteDuplicates(list.head);
+list.appendList([-1, 5, 3, 4, 0]);
+let LL = sortList(list.head);
 print(LL);
