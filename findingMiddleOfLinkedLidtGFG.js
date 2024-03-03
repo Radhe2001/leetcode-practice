@@ -110,7 +110,7 @@ var sortList = function (head) {
 		count++;
 	}
 	return head;
-};
+}; 	
 
 let list = new LinkedList();
 list.appendList([2, 4, 6, 7, 5, 1]);
