@@ -1,21 +1,28 @@
 const duplicates = (a, n) => {
-	let arr = [];
-	for (let i = a.length - 1; i >= 0; i--) {
-		let index = a.indexOf(a[i]);
-		if (index !== i) {
-			if (arr.indexOf(a[i]) === -1) {
-				arr.push(a[i]);
+	let obj = {};
+	let arr2 = [];
+	for (let i = 0; i < a.length; i++) {
+		if (obj[a[i]] === undefined) {
+			obj[a[i]] = 1;
+		} else {
+			if (obj[a[i]] === 1) {
+				arr2.push(a[i]);
+			}
+			obj[a[i]]++;
+		}
+	}
+	let arr3 = [];
+	for (let i = 0; i < a.length; i++) {
+		if (arr2.indexOf(a[i]) !== -1) {
+			if (!(arr3.indexOf(a[i]) !== -1)) {
+				arr3.push(a[i]);
 			}
 		}
 	}
-	if (arr.length === 0) {
-		arr.push(-1);
-    }
-    let arr2 = [];
-    for (let i = arr.length-1; i >=0; i--){
-        arr2.push(arr[i])
-    }
-    console.log(arr2)
+	if (arr3.length === 0) arr3.push(-1);
+	console.log(arr3);
+	return arr3;
 };
 
-duplicates([0, 3, 1, 2], 4);
+duplicates([7,6,8,4,9,8,4,7,4,4], 10);
+// [3,4,12]
