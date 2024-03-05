@@ -92,21 +92,6 @@ var mergeTwoLists = function (list1, list2) {
 		}
 	}
 	return list1;
-
-	// FIXME: Can be more optimized
-	// let current1 = list1;
-	// let current2 = list2;
-	// while (current1) {
-	// 	if (!(current1.data <= current2.data)) {
-	// 		let temp = current2.next;
-	// 		current2.next = current1;
-	// 		current1 = current2;
-	// 		current2 = temp;
-	// 	} else {
-	// 		current1 = current1.next;
-	// 	}
-	// }
-	// print(list1)
 };
 
 let list1 = new LinkedList();
